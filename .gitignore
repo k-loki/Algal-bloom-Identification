@@ -1,4 +1,5 @@
-data
+*.csv
+*imgs*
 .ipynb_checkpoints
 notes.txt
 submissions
