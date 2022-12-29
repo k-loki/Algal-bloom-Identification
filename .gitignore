@@ -3,3 +3,6 @@
 .ipynb_checkpoints
 notes.txt
 submissions
+*png
+resources
+__pycache__
