@@ -7,6 +7,7 @@ import rioxarray
 import planetary_computer as pc
 import cv2
 import odc.stac
+import tensorflow as tf
 
 # get our bounding box to search latitude and longitude coordinates
 def get_bounding_box(latitude, longitude, meter_buffer=1_000):
@@ -82,3 +83,12 @@ def crop_landsat_image(item, bounding_box):
     image_array = cv2.normalize(image_array, None, 0, 255, cv2.NORM_MINMAX)
 
     return image_array
+
+
+
+def my_keras_rmse(y_true, y_pred):
+    y_pred = tf.argmax(y_pred, axis=1) + 1
+    y_pred = tf.cast(y_pred, tf.float16)
+    y_true = tf.cast(y_true, tf.float16)
+    squared_difference = tf.square(y_true - y_pred)
+    return tf.sqrt(tf.reduce_mean(squared_difference, axis=-1))
