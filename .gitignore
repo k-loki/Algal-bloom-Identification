@@ -1,7 +1,7 @@
 *.csv
 *imgs*
 .ipynb_checkpoints
-notes.txt
+bloom-notes.txt
 submissions
 *png
 resources
